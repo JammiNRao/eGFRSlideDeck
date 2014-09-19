@@ -1,0 +1,48 @@
+---
+title       : eGFR
+subtitle    : A Shiny app to calculate estimated Glomerular Filtration Rate
+author      : JayEnAar
+job         : Data Products Course Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [mathjax]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Why a tool for eGFR
+
+### Chronic Kidney Disease is becoming more prevalent
+- aging population, obesity, alcohol, diabetes, hypertension, are risk factors and they are getting more prevalent.
+
+### Detecting failing renal function early can help manage it better and less expensively
+
+### No simple blood test exists for this purpose
+### Renal function can be determined but is a research procedure
+### Plasma creatinine level is any blood test but it has to be interpreted in light of many patient specific factors
+
+--- .class #id
+
+## Algorithm for estimating eGFR
+
+- There are many algorithms that have been well-studied and validated for clinical use. [Click here for the details](http://www.ncbi.nlm.nih.gov/pmc/articles/PMC3100284/table/t1-cbr_32_2_75/)
+- Among the best known is the Modified Diet in Renal Disease -MDRD - study alogorithm
+- MDRD needs plasma creatinine, age in years, whether the patient is male or female, and whether the patient's ethnicity is Black or Other
+- [The formla](http://egfrcalc.renal.org/) that takes these variables and calculates the eGFR is
+
+ $$eGFR = 186*(creatinine/88.4)^-1.154 * Age^-0.203 * (0.742 if female) * (1.210 if black)$$
+
+- A value of eGFR under 30 indicates severe renal impairment, between 31 and 60 is moderate renal impairment, and above 60 indicates normal renal function.  
+
+--- 
+
+## My eGFR Shiny App
+
+### The algorithm has been implemented in a Shiny App written in R
+### [Click here](https://jayenaar.shinyapps.io/eGFR_Calculator/) to use the app.
+
+- The R code for this app can be studied at my github repository [by clicking here](https://github.com/JammiNRao/eGFRShinyApp)
+- To test the accuracy of my app in predicting eGFR you can test the input values in the oficial calculator from the Renal Association website [by clicking here](http://egfrcalc.renal.org/)
+
+---
